@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { BookOpen, Users } from "lucide-react";
-
 import {
   Card,
   CardDescription,
@@ -58,3 +57,4 @@ export function DashboardPage() {
     </div>
   );
 }
+export default DashboardPage;

@@ -11,13 +11,19 @@ export default defineConfig([
     files: ['**/*.{ts,tsx}'],
     extends: [
       js.configs.recommended,
-      tseslint.configs.recommended,
+      // Dùng bộ rules type-aware để eslint hiểu được TS project
+      tseslint.configs.recommendedTypeChecked,
       reactHooks.configs.flat.recommended,
       reactRefresh.configs.vite,
     ],
     languageOptions: {
       ecmaVersion: 2020,
       globals: globals.browser,
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        // Fix lỗi: No tsconfigRootDir was set, and multiple candidate TSConfigRootDirs are present
+        tsconfigRootDir: import.meta.dirname,
+      },
     },
   },
 ])

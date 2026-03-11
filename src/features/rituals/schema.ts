@@ -5,9 +5,7 @@ export const ritualSchema = z.object({
   dateLunar: z.string().min(1, "Ngày âm lịch không được để trống"),
   dateSolar: z.string().optional(),
   timeOfExecution: z.string().optional(),
-  difficultyLevel: z.enum(["dễ", "trung bình", "khó", "rất khó"], {
-    required_error: "Vui lòng chọn độ khó",
-  }),
+  difficultyLevel: z.enum(["dễ", "trung bình", "khó", "rất khó"] as const),
   description: z.string().optional(),
   content: z.string().optional(),
   reference: z.string().optional(),
